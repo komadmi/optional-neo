@@ -67,8 +67,8 @@ const isDayBefore = group({
 ```js
 import {fromNullable, Optional, some} from 'optional-neo';
 
-// Since it is incorrect Date, it will be parsed to NaN. We just filter it and convert to empty Optional
-const resolvedMillis: Optional<number> = fromNullable(Date.parse('incorrect_date')).filter(millis => !isNaN(millis));
+// Since it is incorrect Date, it will be parsed to NaN. We just filter it out and convert to empty Optional
+const resolvedMillis: Optional<number> = fromNullable(Date.parse('date')).filter(millis => !isNaN(millis));
 const nowMillis: Optional<number> = some(Date.UTC());
 
 console.log(resolvedMillis.backUp(nowMillis).getOrNull()); // for example, 1679157633434
