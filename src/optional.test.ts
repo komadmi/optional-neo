@@ -1,4 +1,4 @@
-import { Optional, cleanOptional, empty, emptyFunction, fromNullable, group, instanceOfOptional, some } from "./index";
+import { Optional, cleanOptional, empty, emptyFunction, fromNullable, group, instanceOfOptional, some } from "./optional";
 
 type TestType = { name: string; hasCat: boolean };
 type InnerTestType = { inner: Optional<TestType> };
