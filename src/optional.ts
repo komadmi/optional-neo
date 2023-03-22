@@ -196,14 +196,14 @@ class Some<T> implements Optional<T> {
 /**
  * Constant for empty Optional
  */
-export const empty: Empty<never> = new Empty<never>();
+export const empty: Optional<any> = new Empty<any>();
 
 /**
  * Return an Optional describing the specified value without any non-null checks
  * @param value
  * @returns
  */
-export const some = <T>(value: T) => new Some<T>(value);
+export const some = <T>(value: T): Optional<T> => new Some<T>(value);
 
 /**
  * Return an Optional describing the specified value, if non-null, otherwise return an empty Optional
@@ -218,7 +218,7 @@ export const fromNullable = <T>(value: T | null | undefined) =>
  * @param value
  * @returns
  */
-export const cleanOptional = <T>(value: Optional<T | null | undefined>): Optional<T> =>
+export const cleanOptional = <T>(value: Optional<T> | Optional<null> | Optional<undefined>): Optional<T> =>
   fromNullable(value.getOrUndefined());
 
 /**
